@@ -1,5 +1,6 @@
 package labshopcompensation.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import lombok.Data;
 @Entity
 @Table(name = "Order_table")
 @Data
+//<<< DDD / Aggregate Root
 public class Order {
 
     @Id
@@ -37,10 +39,10 @@ public class Order {
 
     @PrePersist
     public void onPrePersist() {
-        // Get request from Inventory
-        //labshopcompensation.external.Inventory inventory =
-        //    Application.applicationContext.getBean(labshopcompensation.external.InventoryService.class)
-        //    .getInventory(/** mapping value needed */);
+        // Get request from Order
+        //labshopcompensation.external.Order order =
+        //    Application.applicationContext.getBean(labshopcompensation.external.OrderService.class)
+        //    .getOrder(/** mapping value needed */);
 
     }
 
@@ -57,3 +59,4 @@ public class Order {
         return orderRepository;
     }
 }
+//>>> DDD / Aggregate Root

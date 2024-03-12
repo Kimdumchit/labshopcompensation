@@ -8,6 +8,4 @@ public class Inventory {
 
     private Long id;
     private Long stock;
-    // keep
-
 }
