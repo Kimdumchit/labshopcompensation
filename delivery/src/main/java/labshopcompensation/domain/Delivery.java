@@ -1,5 +1,6 @@
 package labshopcompensation.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import lombok.Data;
 @Entity
 @Table(name = "Delivery_table")
 @Data
+//<<< DDD / Aggregate Root
 public class Delivery {
 
     @Id
@@ -37,6 +39,7 @@ public class Delivery {
         return deliveryRepository;
     }
 
+
     public static void addToDeliveryList(OrderPlaced orderPlaced) {
         /** Example 1:  new item  */
         Delivery delivery = new Delivery();
@@ -62,4 +65,6 @@ public class Delivery {
         */
 
     }
+
 }
+//>>> DDD / Aggregate Root

@@ -12,6 +12,7 @@ import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
+//<<< Clean Arch / Inbound Adaptor
 @Service
 @Transactional
 public class PolicyHandler {
@@ -37,22 +38,5 @@ public class PolicyHandler {
         // Sample Logic //
         Inventory.decreaseStock(event);
     }
-
-    @StreamListener(
-        value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='OrderCancelled'"
-    )
-    public void wheneverOrderCancelled_IncreaseStock(
-        @Payload OrderCancelled orderCancelled
-    ) {
-        OrderCancelled event = orderCancelled;
-        System.out.println(
-            "\n\n##### listener IncreaseStock : " + orderCancelled + "\n\n"
-        );
-
-        // Sample Logic //
-        Inventory.increaseStock(event);
-    }
-    // keep
-
 }
+//>>> Clean Arch / Inbound Adaptor

@@ -1,5 +1,6 @@
 package labshopcompensation.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import lombok.Data;
 @Entity
 @Table(name = "Inventory_table")
 @Data
+//<<< DDD / Aggregate Root
 public class Inventory {
 
     @Id
@@ -27,7 +29,9 @@ public class Inventory {
         return inventoryRepository;
     }
 
+    //<<< Clean Arch / Port Method
     public static void decreaseStock(OrderPlaced orderPlaced) {
+
 
         repository().findById(Long.valueOf(orderPlaced.getProductId())).ifPresent(inventory->{
             
@@ -40,6 +44,7 @@ public class Inventory {
 
         
     }
+    //>>> Clean Arch / Port Method
 
     public static void increaseStock(OrderCancelled orderCancelled) {
 
@@ -47,5 +52,5 @@ public class Inventory {
 
     }
 
-
 }
+//>>> DDD / Aggregate Root

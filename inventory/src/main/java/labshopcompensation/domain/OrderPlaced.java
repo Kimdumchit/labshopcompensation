@@ -16,6 +16,4 @@ public class OrderPlaced extends AbstractEvent {
     private Double amount;
     private String status;
     private String address;
-    // keep
-
 }

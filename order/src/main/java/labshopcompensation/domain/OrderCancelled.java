@@ -1,10 +1,12 @@
 package labshopcompensation.domain;
 
+import java.time.LocalDate;
 import java.util.*;
 import labshopcompensation.domain.*;
 import labshopcompensation.infra.AbstractEvent;
 import lombok.*;
 
+//<<< DDD / Domain Event
 @Data
 @ToString
 public class OrderCancelled extends AbstractEvent {
@@ -24,6 +26,5 @@ public class OrderCancelled extends AbstractEvent {
     public OrderCancelled() {
         super();
     }
-    // keep
-
 }
+//>>> DDD / Domain Event
